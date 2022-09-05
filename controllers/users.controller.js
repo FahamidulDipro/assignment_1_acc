@@ -86,6 +86,12 @@ module.exports.getAllusers = (req, res, next) => {
   console.log(limit);
   res.json(users.slice(0, limit));
 };
+module.exports.getRandomuser = (req, res, next) => {
+  const randomUser = users[Math.floor(Math.random()*users.length)];
+
+ 
+  res.json(randomUser);
+};
 module.exports.insertuser = (req, res) => {
   console.log(req.body);
   users.push(req.body);

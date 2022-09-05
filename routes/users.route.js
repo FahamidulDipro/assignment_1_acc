@@ -10,5 +10,5 @@ router
   .post(usersController.insertuser).patch(usersController.updateuser).delete(usersController.deleteuser);
 
   router.route("/all").get(viewCount,limiter, usersController.getAllusers)
-  router.route("/random")
+  router.route("/random").get(usersController.getRandomuser);
 module.exports = router;
