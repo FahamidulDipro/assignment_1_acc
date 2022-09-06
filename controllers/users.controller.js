@@ -4,7 +4,6 @@ let users = JSON.parse(readFileSync('./public/data.json'));
  
 module.exports.getAllusers = (req, res, next) => {
   const { limit } = req.query;
- 
   res.json(users.slice(0, limit));
 };
 module.exports.getRandomuser = (req, res, next) => {
@@ -27,6 +26,10 @@ module.exports.updateuser = (req, res) => {
   const newData = users.find((p) => p.id == id);
   newData.id = id;
   newData.name = req.body.name;
+  newData.contact= req.body.contact;
+  newData.address = req.body.address;
+  newData.picture = req.body.picture;
+  newData.gender = req.body.gender;
   res.send(newData);
 };
 
